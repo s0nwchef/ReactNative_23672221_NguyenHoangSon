@@ -1,61 +1,18 @@
 class Animal {
-  name: string;
-  age: number;
-
-  constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
-  }
-
-  sound(): string {
-    return `${this.name} phát ra tiếng kêu.`;
-  }
-
-  displayInfo(): string {
-    return `${this.name} - ${this.age} tuổi`;
-  }
+  constructor(public name: string, public age: number) {}
+  sound(): string { return `${this.name} makes a sound.`; }
 }
 
 class Dog extends Animal {
-  breed: string;
-
-  constructor(name: string, age: number, breed: string) {
-    super(name, age);
-    this.breed = breed;
-  }
-
-  bark(): string {
-    return `${this.name} sủa: Gâu gâu gâu!`;
-  }
-
-  sound(): string {
-    return this.bark();
-  }
-
-  displayInfo(): string {
-    return `${super.displayInfo()} - Giống: ${this.breed}`;
-  }
+  constructor(name: string, age: number, public breed: string) { super(name, age); }
+  bark(): string { return `${this.name} barks: Woof woof!`; }
+  sound(): string { return this.bark(); }
 }
 
 class Cat extends Animal {
-  color: string;
-
-  constructor(name: string, age: number, color: string) {
-    super(name, age);
-    this.color = color;
-  }
-
-  meow(): string {
-    return `${this.name} kêu: Meo meo meo!`;
-  }
-
-  sound(): string {
-    return this.meow();
-  }
-
-  displayInfo(): string {
-    return `${super.displayInfo()} - Màu: ${this.color}`;
-  }
+  constructor(name: string, age: number, public color: string) { super(name, age); }
+  meow(): string { return `${this.name} meows: Meow meow!`; }
+  sound(): string { return this.meow(); }
 }
 
 export { Animal, Dog, Cat };

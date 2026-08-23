@@ -30,7 +30,8 @@ class Shape {
     };
   }
 
-  static createRectangle(width: number, height: number): { name: string; width: number; height: number; area: number } {
+  static createRectangle(width: number, height: number): 
+  { name: string; width: number; height: number; area: number } {
     return {
       name: "Rectangle",
       width: width,

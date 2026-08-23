@@ -1,54 +1,28 @@
 interface IAnimal {
   name: string;
-  species: string;
   sound(): string;
-  move(): string;
 }
 
-interface IFeedable {
-  eat(food: string): string;
-}
-
-interface ISleepable {
-  sleep(hours: number): string;
-}
-
-type AnimalInfo = {
+class BasicAnimal implements IAnimal {
   name: string;
   species: string;
-  age: number;
-};
 
-class BasicAnimal implements IAnimal, IFeedable, ISleepable {
-  name: string;
-  species: string;
-  age: number;
-
-  constructor(name: string, species: string, age: number) {
+  constructor(name: string, species: string) {
     this.name = name;
     this.species = species;
-    this.age = age;
   }
 
   sound(): string {
-    return `${this.name} phát ra tiếng kêu.`;
+    return `${this.name} makes a sound.`;
   }
 
   move(): string {
-    return `${this.name} đang di chuyển.`;
-  }
-
-  eat(food: string): string {
-    return `${this.name} đang ăn ${food}.`;
-  }
-
-  sleep(hours: number): string {
-    return `${this.name} đang ngủ trong ${hours} giờ.`;
+    return `${this.name} is moving.`;
   }
 
   displayInfo(): string {
-    return `${this.name} (${this.species}) - ${this.age} tuổi`;
+    return `${this.name} (${this.species})`;
   }
 }
 
-export { IAnimal, IFeedable, ISleepable, AnimalInfo, BasicAnimal };
+export { IAnimal, BasicAnimal };
